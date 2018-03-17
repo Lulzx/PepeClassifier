@@ -7,9 +7,9 @@ image_data = tf.gfile.FastGFile(user_pepe, 'rb').read()
 
 #Load labels, remove carriage returns
 
-label_lines = [line.rstrip() for line in tf.gfile.GFile("/Users/abhishek/Downloads/tensorflow/Retraining/tf_files/retrained_labels.txt")]
+label_lines = [line.rstrip() for line in tf.gfile.GFile("/Retraining/tf_files/retrained_labels.txt")]
 
-with tf.gfile.FastGFile("/Users/abhishek/Downloads/tensorflow/Retraining/tf_files/retrained_graph.pb", "rb") as f:
+with tf.gfile.FastGFile("/Retraining/tf_files/retrained_graph.pb", "rb") as f:
 	graph_def = tf.GraphDef()
 	graph_def.ParseFromString(f.read())
 	_ = tf.import_graph_def(graph_def, name='')
